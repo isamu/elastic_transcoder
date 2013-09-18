@@ -169,9 +169,8 @@ module ElasticTranscoder
         #puts "signature: #{signature}\n\n"
       end
       
-      def self.build_authorization aws_access_key, aws_secret_key, host, method, action, api_version, user_params, payload
+      def self.build_authorization aws_access_key, aws_secret_key, region, host, method, action, api_version, user_params, payload
          date = Time.now.getutc
-         region = "us-east-1"
          signature = sign_request_v4 aws_access_key, aws_secret_key, host, method, action, api_version, user_params, date, region, payload
         return "AWS4-HMAC-SHA256 Credential=#{aws_access_key}/#{normal_date date}/#{region}/elastictranscoder/aws4_request, SignedHeaders=host;x-amz-date, Signature=#{signature}", date.iso8601
       end
