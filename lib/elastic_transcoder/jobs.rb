@@ -44,7 +44,7 @@ module ElasticTranscoder
         },
         "Output" => {
           "Key" => output_key,
-          "Rotate" => "0",
+          "Rotate" => "auto",
           "PresetId" => preset_id 
         },
         "PipelineId" => pipeline_id
